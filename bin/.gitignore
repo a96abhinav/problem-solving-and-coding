@@ -17,9 +17,11 @@
 /HashSet.class
 /HashmapAndTreeset.class
 /Inheritence.class
+/MapVsFlatMap.class
 /P01.class
 /P02.class
 /P03.class
+/Person.class
 /PriorityQueueEx02.class
 /PriorityQueueExample.class
 /Singleton.class
@@ -29,6 +31,4 @@
 /Test.class
 /ThrowError.class
 /TryCatchBlock.class
-/MapVsFlatMap.class
-/Custome.class
-/Person.class
+/EclipseGitIntegration.class
