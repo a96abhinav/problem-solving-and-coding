@@ -1,4 +1,4 @@
-package com.java.dsa;
+package com.java.dsa.sorting;
 
 import java.time.Duration;
 import java.time.Instant;
