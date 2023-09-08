@@ -1,4 +1,4 @@
-package com.java.dsa.sorting;
+package com.java.dsa;
 
 public class FibonacciSeriesImplUsingTwoVariables {
 
