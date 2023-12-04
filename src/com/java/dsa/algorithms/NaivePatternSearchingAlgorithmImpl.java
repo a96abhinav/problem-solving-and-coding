@@ -1,4 +1,4 @@
-package com.java.dsa;
+package com.java.dsa.algorithms;
 
 import java.util.ArrayList;
 import java.util.List;

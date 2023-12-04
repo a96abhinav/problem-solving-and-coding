@@ -9,5 +9,6 @@
 	<classpathentry kind="lib" path="C:/Jars/jackson_jars/jackson-annotations-2.15.2.jar"/>
 	<classpathentry kind="lib" path="C:/Jars/jackson_jars/jackson-core-2.15.2.jar"/>
 	<classpathentry kind="lib" path="C:/Jars/jackson_jars/jackson-databind-2.15.2.jar"/>
+	<classpathentry kind="lib" path="C:/Jars/lombok_jars/lombok.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
