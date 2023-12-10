@@ -1,4 +1,4 @@
-package com.java.dsa.algorithms;
+package com.java.dsa.problems;
 
 public class FibonacciSeriesImplUsingTwoVariables {
 
