@@ -2,6 +2,7 @@ package com.java.java8;
 import java.math.BigDecimal;
 import java.util.*;
 import java.util.Map.Entry;
+import java.util.function.Function;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
@@ -66,18 +67,20 @@ public class Streams01 {
 		 * for (Entry<String, Long> entry : CountMaleAndFemaleEmployees.entrySet()) {
 		 * System.out.println(entry.getKey() + " : " + entry.getValue()); }
 		 */
-		System.out.println();
-		
-		System.out.println("groupEmployeesByGender :");
-		Map<String, List<Employee>> groupEmployeesByGender = employeeList.stream()
-						.collect(Collectors.groupingBy(Employee::getGender));
-		System.out.println(groupEmployeesByGender);
-		
-		for(Map.Entry<String, List<Employee>> entry: groupEmployeesByGender.entrySet()) {
-			System.out.println(entry.getKey()+" : "+entry.getValue());
-		}
-		
-		System.out.println();
+		/*
+		 * System.out.println();
+		 * 
+		 * System.out.println("groupEmployeesByGender :"); Map<String, List<Employee>>
+		 * groupEmployeesByGender = employeeList.stream()
+		 * .collect(Collectors.groupingBy(Employee::getGender));
+		 * System.out.println(groupEmployeesByGender);
+		 * 
+		 * for(Map.Entry<String, List<Employee>> entry:
+		 * groupEmployeesByGender.entrySet()) {
+		 * System.out.println(entry.getKey()+" : "+entry.getValue()); }
+		 * 
+		 * System.out.println();
+		 */
 		  
 			/*
 			 * System.out.println("Find the average salary of employees by department :-");
@@ -149,6 +152,20 @@ public class Streams01 {
 		 * Employee e = employeeList.get(0); System.out.println(e.id);
 		 */
 		
+		System.out.println();
+		
+		String[] colours = {"red","green","blue","grey","grey","green","white","black"};
+		List<String> coloursList = Arrays.asList(colours);
+		
+		Map<String, Long> map = coloursList.stream().collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
+		
+		for(Entry<String, Long> x : map.entrySet()) {
+			if(x.getValue()==1) {
+				System.out.print(x.getKey()+",");
+			}
+		}
+		
+		System.out.println();
 	}
 
 }
