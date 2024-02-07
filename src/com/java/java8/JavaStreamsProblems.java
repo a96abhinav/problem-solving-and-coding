@@ -2,8 +2,10 @@ package com.java.java8;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -70,11 +72,52 @@ public class JavaStreamsProblems {
         String result = s1.equals(s2) ? "Two strings are anagrams":"Two strings are not anagrams";
         System.out.println(result);
         
-      //***************  Find sum of all digits of a number in Java 8
+        //***************  Find sum of all digits of a number in Java 8
         System.out.println("P7*******************************************************************************");
         int number = 123456789;
         Integer sumOfNumber = Arrays.asList(String.valueOf(number).split("")).stream().collect(Collectors.summingInt(Integer :: parseInt));
         System.out.println(sumOfNumber);
+        
+        //***************  Find sum of all digits of a number in Java 8
+        System.out.println("P8*******************************************************************************");        
+        List<String> str = Arrays.asList("A","B","H","I","N","A","V");        
+        String s = str.stream().map(String :: toLowerCase).collect(Collectors.joining());
+        System.out.println(s);
+        
+        //***************   Given a list of strings, sort them according to increasing order of their length
+        System.out.println("P9*******************************************************************************"); 
+        List<String> listOfFruits = Arrays.asList("Apple","Mango","Banana","Watermelon","Guava","Orange","Pineapple");
+        listOfFruits = listOfFruits.stream().sorted(Comparator.comparing(String :: length)).collect(Collectors.toList());
+        System.out.println(listOfFruits);
+        
+        //***************   Reverse each word of a string using Java 8 streams
+        System.out.println("P10*******************************************************************************");
+        String reverseTheString = "I love my India";        
+        reverseTheString = Arrays.asList(reverseTheString.split(" ")).stream().map(ss-> new StringBuffer(ss).reverse()).collect(Collectors.joining(" "));
+        System.out.println(reverseTheString);       
+	
+        //***************   How do you find sum of first 10 natural numbers
+        System.out.println("P11*******************************************************************************");
+        System.out.println(IntStream.rangeClosed(1, 10).sum());
+        
+        //***************   Find the 3rd largest number from given list of numbers
+        System.out.println("P12*******************************************************************************");
+        System.out.println(listOfIntegers.stream().sorted(Comparator.reverseOrder()).skip(2).max(Comparator.naturalOrder()).get());
+        
+     	//***************   Extract duplicate characters from string
+        System.out.println("P13*******************************************************************************");
+        String strWithDuplicates = "aabbhhiinnaavvxyz";
+        Set<String> uniqueChars = new HashSet<String>();
+        Set<String> duplicateChars = Arrays.asList(strWithDuplicates.split("")).stream().filter(ch-> uniqueChars.add(ch)==false).collect(Collectors.toSet());
+        System.out.println("duplicateChars : "+duplicateChars);
+        System.out.println("uniqueChars : "+uniqueChars);
 	}
 
+	public static String reverse(String string) {
+		String s = "";
+		for(int i=string.length()-1;i>=0;i--) {
+			s+=string.charAt(i);
+		}
+		return s;
+	}
 }
