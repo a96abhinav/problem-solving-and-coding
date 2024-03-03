@@ -52,7 +52,7 @@ public class JavaStreamsProblems {
 		//int max = listOfIntegers.stream().max(Comparator.naturalOrder()).get(); 
 		//int max = Collections.max(listOfIntegers);
 		int max = listOfIntegers.stream().mapToInt(i->i).max().getAsInt();
-		int min = listOfIntegers.stream().max(Comparator.reverseOrder()).get();
+		int min = listOfIntegers.stream().min(Comparator.naturalOrder()).get();
 		System.out.println("max : "+max+" & min : "+min);
 		
 		//*************** How do you merge two unsorted arrays into single sorted array using Java 8 streams
@@ -78,7 +78,7 @@ public class JavaStreamsProblems {
         Integer sumOfNumber = Arrays.asList(String.valueOf(number).split("")).stream().collect(Collectors.summingInt(Integer :: parseInt));
         System.out.println(sumOfNumber);
         
-        //***************  Find sum of all digits of a number in Java 8
+        //***************  Join the characters and convert to String using Java 8
         System.out.println("P8*******************************************************************************");        
         List<String> str = Arrays.asList("A","B","H","I","N","A","V");        
         String s = str.stream().map(String :: toLowerCase).collect(Collectors.joining());
@@ -111,9 +111,18 @@ public class JavaStreamsProblems {
         Set<String> duplicateChars = Arrays.asList(strWithDuplicates.split("")).stream().filter(ch-> uniqueChars.add(ch)==false).collect(Collectors.toSet());
         System.out.println("duplicateChars : "+duplicateChars);
         System.out.println("uniqueChars : "+uniqueChars);
+        
+        //***************   Check for pallindrome
+        System.out.println("P14*******************************************************************************");
+        
+        String str1 = "ROTATOR";
+        //boolean isItPalindrome = IntStream.range(0, str.length()/2).
+        //noneMatch(i -> str.charAt(i) != str.charAt(str.length() - i -1));
+        boolean isPalindrome = IntStream.range(0, str1.length()/2).noneMatch(i -> str1.charAt(i) != str1.charAt(str1.length()-i-1));
+        System.out.println(isPalindrome);
 	}
 
-	public static String reverse(String string) {
+	public static String resverse(String string) {
 		String s = "";
 		for(int i=string.length()-1;i>=0;i--) {
 			s+=string.charAt(i);
