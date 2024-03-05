@@ -1,8 +1,10 @@
 package com.java.dsa.problems;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class WordOccCountInString {
 
@@ -19,24 +21,8 @@ public class WordOccCountInString {
 		
 		String str= "Black cat white cat";
 		
-		
-		List<String> wordsList = Arrays.asList(str.split(" "));
-		HashMap<String, Integer> wordsCount = new HashMap<String, Integer>();
-		
-		wordsList.stream().forEach(strValue ->{
-			if(wordsCount.get(strValue) != null) {
-				wordsCount.put(strValue, wordsCount.get(strValue)+1);
-			}else {
-				wordsCount.put(strValue, 1);
-			}
-		});
-		
-		System.out.println(wordsCount);
-		
-		
-		//output: Black=1 white=1 cat =2
-		
-		
+		Map<String,Long> wordCount = Arrays.asList(str.split(" ")).stream().collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
+		System.out.println(wordCount);		
 	}
 
 }
