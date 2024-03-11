@@ -101,7 +101,7 @@ public class Graph {
 	}
 
 	public static void main(String[] args) {
-		Graph busNetwork = new Graph(true, false);
+		Graph busNetwork = new Graph(true, true);
 		Vertex marathalli = busNetwork.addVertex("Marathalli");
 		Vertex hsrLayout = busNetwork.addVertex("HSR Layout");
 		Vertex krPuramRs = busNetwork.addVertex("KR Puram Railway Station");
