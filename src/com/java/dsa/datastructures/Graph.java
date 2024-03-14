@@ -108,14 +108,22 @@ public class Graph {
 		Vertex mgRoad = busNetwork.addVertex("MG Road");
 		Vertex spiceGarden = busNetwork.addVertex("Spice Gargen");
 		Vertex varthur = busNetwork.addVertex("Varthur");
-
+		Vertex koramangala = busNetwork.addVertex("Koramangala");
+		
+		busNetwork.addEdge(spiceGarden, marathalli, 5);
 		busNetwork.addEdge(marathalli, hsrLayout, 10);
-		busNetwork.addEdge(marathalli, krPuramRs, 12);
-		busNetwork.addEdge(marathalli, mgRoad, 15);
-		busNetwork.addEdge(marathalli, spiceGarden, 1);
-		busNetwork.addEdge(spiceGarden, varthur, 5);
-
+		busNetwork.addEdge(marathalli, krPuramRs, 7);		
+		busNetwork.addEdge(hsrLayout, koramangala, 5);
+		busNetwork.addEdge(koramangala, mgRoad, 3);
+		busNetwork.addEdge(krPuramRs, mgRoad, 5);		
+		busNetwork.addEdge(marathalli, mgRoad, 15);		
+		busNetwork.addEdge(varthur, spiceGarden, 5);
+		busNetwork.addEdge(mgRoad, koramangala, 3);
+		
+		System.out.println("Bengaluru bus network:-\n");
 		busNetwork.print();
+		
+		DijkstraAlgorithm.shortestPathBetween(busNetwork, spiceGarden, koramangala);
 	}
 
 }
