@@ -1,36 +1,26 @@
 package com.java.practice;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-import java.util.concurrent.CompletableFuture;
-import java.util.function.Function;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import java.util.WeakHashMap;
 
-interface AA {
-
-}
-
-interface BB {
-
-}
-
-interface CC {
-
-}
-
-public class XyzPractice implements AA, BB, CC {
-
-	int id;
+public class XyzPractice {
 
 	public static void main(String[] args) {
 
-		double a= 10;
-		double b = 7;
-		
-		System.out.println(a/b);
-	}
+		/*
+		 * String one = "1"; String two = "2";
+		 */
 
+		String one = new String("1");
+		String two = new String("2");
+
+		WeakHashMap<String, Integer> whm = new WeakHashMap<String, Integer>();
+		whm.put(one, 1);
+		whm.put(two, 2);
+		System.out.println(whm);
+
+		one = null;
+		System.gc();
+		System.out.println(whm);
+
+	}
 }

@@ -1,7 +1,7 @@
 package com.java.practice;
 import java.util.Set;
 
-public class HashSet {
+public class HashSetPractice {
 
 	public static void main(String[] args) {
 		
