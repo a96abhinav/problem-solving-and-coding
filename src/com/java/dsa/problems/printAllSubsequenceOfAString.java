@@ -2,12 +2,12 @@ package com.java.dsa.problems;
 
 import java.util.*;
 
-public class GFG {
+public class printAllSubsequenceOfAString {
 
 	static List<String> al = new ArrayList<>();
 
-	public static void printAllSubsequenceOfAString(String[] args) {
-		String s = "Geeks";
+	public static void main(String[] args) {
+		String s = "abc";
 		findsubsequences(s, "");
 		Collections.sort(al);
 		System.out.println(al);
