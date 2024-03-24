@@ -1,4 +1,4 @@
-package com.java.practice;
+package com.java.designpatterns;
 
 class SingletonClass {
 
@@ -9,16 +9,19 @@ class SingletonClass {
 	}
 
 	public static SingletonClass getInstance() {
-		if(singleton == null) {
-			singleton =  new SingletonClass();
+		if (singleton == null) {
+			synchronized (SingletonClass.class) {
+				if (singleton == null) {
+					singleton = new SingletonClass();
+				}
+			}
 		}
 		return singleton;
 	}
 
-
 }
 
-public class Singleton{
+public class SingletonDP {
 	public static void main(String[] args) {
 
 		SingletonClass s1 = SingletonClass.getInstance();
@@ -29,13 +32,11 @@ public class Singleton{
 		System.out.println(s2.hashCode());
 		System.out.println(s3.hashCode());
 
-		if(s1 == s2) {
+		if (s1 == s2) {
 			System.out.println("Yes");
-		}else {  
+		} else {
 			System.out.println("no");
 		}
 
 	}
 }
-
-
