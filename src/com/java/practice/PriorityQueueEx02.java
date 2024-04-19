@@ -1,5 +1,4 @@
 package com.java.practice;
-import java.util.Collections;
 import java.util.PriorityQueue;
 
 public class PriorityQueueEx02 {

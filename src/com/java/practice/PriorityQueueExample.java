@@ -1,5 +1,5 @@
 package com.java.practice;
-import java.util.*;
+import java.util.PriorityQueue;
 
 class Customer implements Comparable<Customer> {
 

@@ -1,8 +1,5 @@
 package com.java.practice;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-
 class EmployeeTest {
 	int id;
 	String name;

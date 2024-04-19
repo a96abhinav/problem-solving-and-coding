@@ -58,9 +58,9 @@ public class JavaStreamsProblems {
 		//*************** How do you merge two unsorted arrays into single sorted array using Java 8 streams
 		System.out.println("P5*******************************************************************************");
 		int[] a = new int[] {2,3,4,56,6,8};
-		int[] b = new int[] {34,65,87,93,45,64,28};
+		int[] b = new int[] {2,3,34,65,87,93,45,64,28};
 		
-		int[] c = IntStream.concat(Arrays.stream(a), Arrays.stream(b)).sorted().toArray();
+		int[] c = IntStream.concat(Arrays.stream(a), Arrays.stream(b)).distinct().sorted().toArray();
 		System.out.println(Arrays.toString(c));
 		
 		//*************** Java 8 program to check if two strings are anagrams or not

@@ -26,10 +26,13 @@ public class MapVsFlatMap {
 				new Person("Abhinav",Arrays.asList("9795930632","7338710323")),
 				new Person("Alok",Arrays.asList("9453122672","9415476241"))).collect(Collectors.toList());
 		
-		System.out.println(persons);
+		//System.out.println(persons);
 		
 		List<List<String>> phoneNumbersMap = persons.stream().map(person->person.phoneNumbers).collect(Collectors.toList());
 		System.out.println(phoneNumbersMap);
+		
+		System.out.println("=============================");
+		
 		List<String> phoneNumbersFlatMap = persons.stream().flatMap(person->person.phoneNumbers.stream()).collect(Collectors.toList());
 		System.out.println(phoneNumbersFlatMap);
 	}
