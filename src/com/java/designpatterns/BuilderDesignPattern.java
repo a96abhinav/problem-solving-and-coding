@@ -28,6 +28,10 @@ class User {
 		String userName;
 		String userEmail;
 
+		public static UserBuilder builder() {
+			return new UserBuilder();
+		}
+
 		public UserBuilder setUserId(int userId) {
 			this.userId = userId;
 			return this;
@@ -57,11 +61,11 @@ class User {
 }
 
 public class BuilderDesignPattern {
-	
+
 	public static void main(String[] args) {
-		
-		User user = new User.UserBuilder().setUserEmail("XYZ@gmail.com").setUserId(1).setUserName("Abhinav").build();
+
+		User user = User.UserBuilder.builder().setUserEmail("XYZ@gmail.com").setUserId(1).setUserName("Abhinav").build();
 		System.out.println(user);
-		
+
 	}
 }
