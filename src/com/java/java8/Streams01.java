@@ -1,4 +1,5 @@
 package com.java.java8;
+
 import java.math.BigDecimal;
 import java.util.*;
 import java.util.Map.Entry;
@@ -7,7 +8,6 @@ import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class Streams01 {
-
 
 	/**
 	 * @param args
@@ -33,7 +33,28 @@ public class Streams01 {
 		employeeList.add(new Employee(266, "Sanvi Pandey", 26, "Female", "Product Development", 2015, 28900.0));
 		employeeList.add(new Employee(277, "Anuj Chettiar", 31, "Male", "Product Development", 2012, 35700.0));
 
+		System.out.println();
 
+		Map<String, Double> employeeWithMaxSalaryInEachDepartment = employeeList.stream()
+				.collect(Collectors.groupingBy(Employee::getDepartment,
+						Collectors.collectingAndThen(Collectors.maxBy(Comparator.comparingDouble(Employee::getSalary)),
+								employee -> employee.map(Employee::getSalary).get())));
+
+		employeeWithMaxSalaryInEachDepartment.entrySet().stream().forEach(e -> {
+			System.out.println(e);
+		});
+		System.out.println("========================");
+		Map<String, Double> employeeWithSecondHighestSalaryInEachDepartment = employeeList.stream()
+				.collect(Collectors.groupingBy(Employee::getDepartment,
+						Collectors.mapping(Employee::getSalary,
+								Collectors.collectingAndThen(Collectors.toList(), salaries -> salaries.stream()
+										.sorted(Comparator.reverseOrder()).skip(1).findFirst().get()))));
+
+		employeeWithSecondHighestSalaryInEachDepartment.entrySet().stream().forEach(e -> {
+			System.out.println(e);
+		});
+		System.out.println();
+		
 
 		/*
 		 * System.out.println("All Employees Details :-"); long countAll =
@@ -57,7 +78,7 @@ public class Streams01 {
 		 * return e;} ).collect(Collectors.toList());
 		 * l03.stream().forEach(s->System.out.println(s));
 		 */
-		
+
 		/*
 		 * System.out.println();
 		 * 
@@ -81,15 +102,15 @@ public class Streams01 {
 		 * 
 		 * System.out.println();
 		 */
-		  
-			/*
-			 * System.out.println("Find the average salary of employees by department :-");
-			 * Map<String,Double> CountAverageSalaryOfEmployeesByDepartment =
-			 * employeeList.stream().collect(Collectors.groupingBy(Employee::getDepartment,
-			 * Collectors.averagingDouble(Employee::getSalary))); for (Entry<String, Double>
-			 * entry : CountAverageSalaryOfEmployeesByDepartment.entrySet()) {
-			 * System.out.println(entry.getKey()+" : "+entry.getValue()); }
-			 */
+
+		/*
+		 * System.out.println("Find the average salary of employees by department :-");
+		 * Map<String,Double> CountAverageSalaryOfEmployeesByDepartment =
+		 * employeeList.stream().collect(Collectors.groupingBy(Employee::getDepartment,
+		 * Collectors.averagingDouble(Employee::getSalary))); for (Entry<String, Double>
+		 * entry : CountAverageSalaryOfEmployeesByDepartment.entrySet()) {
+		 * System.out.println(entry.getKey()+" : "+entry.getValue()); }
+		 */
 
 		/*
 		 * System.out.println();
@@ -131,7 +152,7 @@ public class Streams01 {
 		 * Collectors.groupingBy(e->e.getGender(),Collectors.groupingBy(e->e.getAge(),
 		 * Collectors.counting())))); System.out.println(test);
 		 */
-		
+
 		/*
 		 * List<Employee> emp =employeeList.stream().sorted((e1,e2)->{ if(e1.id>e2.id)
 		 * {return 1;} if(e1.id<e2.id) {return -1;} return 0;
@@ -139,7 +160,7 @@ public class Streams01 {
 		 * 
 		 * for(Employee e : emp) { System.out.println(e); }
 		 */
-		
+
 		/*
 		 * double salary =
 		 * employeeList.stream().filter(e->e.age==24).mapToDouble(Employee::getSalary).
@@ -151,21 +172,23 @@ public class Streams01 {
 		 * 
 		 * Employee e = employeeList.get(0); System.out.println(e.id);
 		 */
-		
-		System.out.println();
-		
-		String[] colours = {"red","green","blue","grey","grey","green","white","black"};
-		List<String> coloursList = Arrays.asList(colours);
-		
-		Map<String, Long> map = coloursList.stream().collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
-		
-		for(Entry<String, Long> x : map.entrySet()) {
-			if(x.getValue()==1) {
-				System.out.print(x.getKey()+",");
-			}
-		}
-		
-		System.out.println();
+
+		/*
+		 * System.out.println();
+		 * 
+		 * String[] colours =
+		 * {"red","green","blue","grey","grey","green","white","black"}; List<String>
+		 * coloursList = Arrays.asList(colours);
+		 * 
+		 * Map<String, Long> map =
+		 * coloursList.stream().collect(Collectors.groupingBy(Function.identity(),
+		 * Collectors.counting()));
+		 * 
+		 * for(Entry<String, Long> x : map.entrySet()) { if(x.getValue()==1) {
+		 * System.out.print(x.getKey()+","); } }
+		 * 
+		 * System.out.println();
+		 */
 	}
 
 }
