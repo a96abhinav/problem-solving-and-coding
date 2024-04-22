@@ -6,15 +6,15 @@ public class SelectionSortImpl {
 		int[] arr = { 9, 8, 7, 6, 5, 4, 3, 2, 1, 99, 20 };
 
 		for (int i = 0; i < arr.length - 1; i++) {
-			for (int j = i + 1; j < arr.length; j++) {
-				int smallest = i;
+			int smallest = i;
+			for (int j = i + 1; j < arr.length; j++) {				
 				if (arr[smallest] > arr[j]) {
 					smallest = j;
 				}
-				int temp = arr[i];
-				arr[i] = arr[smallest];
-				arr[smallest] = temp;
 			}
+			int temp = arr[i];
+			arr[i] = arr[smallest];
+			arr[smallest] = temp;
 		}
 
 		for (int i : arr) {
