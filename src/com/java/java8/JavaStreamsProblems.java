@@ -102,7 +102,7 @@ public class JavaStreamsProblems {
         
         //***************   Find the 3rd largest number from given list of numbers
         System.out.println("P12*******************************************************************************");
-        System.out.println(listOfIntegers.stream().sorted(Comparator.reverseOrder()).skip(2).max(Comparator.naturalOrder()).get());
+        System.out.println(listOfIntegers.stream().sorted(Comparator.reverseOrder()).skip(2).findFirst().get());
         
      	//***************   Extract duplicate characters from string
         System.out.println("P13*******************************************************************************");
