@@ -11,22 +11,12 @@ public class ProductExceptSelf {
 
 		List<Integer> list2 = new ArrayList<Integer>();
 
-		for (int i = 0; i < list1.size(); i++) {
-
-			int product = 1;
-
-			for (int j = 0; j < list1.size(); j++) {
-				if (i != j) {
-					product *= list1.get(j);
-				}
-
-			}
-
-			list2.add(product);
-
-		}
+		Integer multipleOfAllNumbers = list1.stream().reduce(1, (a,b)->a*b);
+		
+		list1.forEach(e->{
+			list2.add(multipleOfAllNumbers/e);
+		});
 		
 		System.out.println(list2);
-
 	}
 }
