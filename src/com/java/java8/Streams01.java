@@ -33,28 +33,47 @@ public class Streams01 {
 		employeeList.add(new Employee(266, "Sanvi Pandey", 26, "Female", "Product Development", 2015, 28900.0));
 		employeeList.add(new Employee(277, "Anuj Chettiar", 31, "Male", "Product Development", 2012, 35700.0));
 
-		System.out.println();
-
-		Map<String, Double> employeeWithMaxSalaryInEachDepartment = employeeList.stream()
-				.collect(Collectors.groupingBy(Employee::getDepartment,
-						Collectors.collectingAndThen(Collectors.maxBy(Comparator.comparingDouble(Employee::getSalary)),
-								employee -> employee.map(Employee::getSalary).get())));
-
-		employeeWithMaxSalaryInEachDepartment.entrySet().stream().forEach(e -> {
-			System.out.println(e);
-		});
-		System.out.println("========================");
-		Map<String, Double> employeeWithSecondHighestSalaryInEachDepartment = employeeList.stream()
-				.collect(Collectors.groupingBy(Employee::getDepartment,
-						Collectors.mapping(Employee::getSalary,
-								Collectors.collectingAndThen(Collectors.toList(), salaries -> salaries.stream()
-										.sorted(Comparator.reverseOrder()).skip(1).findFirst().get()))));
-
-		employeeWithSecondHighestSalaryInEachDepartment.entrySet().stream().forEach(e -> {
-			System.out.println(e);
-		});
-		System.out.println();
+		Collections.sort(employeeList,Comparator.comparing(Employee::getDepartment).thenComparing(Employee::getSalary));
 		
+		employeeList.forEach(employee->{
+			System.out.println(employee.getDepartment()+" => "+employee.getSalary());
+		});
+		
+		System.out.println();
+
+		Map<String, Double> map = employeeList.stream().collect(Collectors.groupingBy(Employee::getDepartment,
+				Collectors.collectingAndThen(Collectors.toList(), employees-> {
+					
+					Employee e = ((Collection<Employee>) employees).stream()
+							.sorted(Comparator.comparing(Employee::getSalary).reversed()).skip(2).findFirst()
+							.orElse(new Employee(0, null, 0, null, null, 0, 0));
+					
+					return e.getSalary();
+				})));
+
+		System.out.println(map);
+
+		/*
+		 * System.out.println();
+		 * 
+		 * Map<String, Double> employeeWithMaxSalaryInEachDepartment =
+		 * employeeList.stream() .collect(Collectors.groupingBy(Employee::getDepartment,
+		 * Collectors.collectingAndThen(Collectors.maxBy(Comparator.comparingDouble(
+		 * Employee::getSalary)), employee ->
+		 * employee.map(Employee::getSalary).get())));
+		 * 
+		 * employeeWithMaxSalaryInEachDepartment.entrySet().stream().forEach(e -> {
+		 * System.out.println(e); }); System.out.println("========================");
+		 * Map<String, Double> employeeWithSecondHighestSalaryInEachDepartment =
+		 * employeeList.stream() .collect(Collectors.groupingBy(Employee::getDepartment,
+		 * Collectors.mapping(Employee::getSalary,
+		 * Collectors.collectingAndThen(Collectors.toList(), salaries ->
+		 * salaries.stream()
+		 * .sorted(Comparator.reverseOrder()).skip(1).findFirst().get()))));
+		 * 
+		 * employeeWithSecondHighestSalaryInEachDepartment.entrySet().stream().forEach(e
+		 * -> { System.out.println(e); }); System.out.println();
+		 */
 
 		/*
 		 * System.out.println("All Employees Details :-"); long countAll =

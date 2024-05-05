@@ -13,7 +13,7 @@ public class Employee
      
     int yearOfJoining;
      
-    double salary;
+    Double salary;
      
     public Employee(int id, String name, int age, String gender, String department, int yearOfJoining, double salary) 
     {
