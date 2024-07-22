@@ -1,4 +1,4 @@
-package com.java.dsa.datastructures;
+package com.java.dsa.datastructures.graphs;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

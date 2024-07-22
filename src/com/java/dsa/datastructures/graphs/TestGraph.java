@@ -1,4 +1,4 @@
-package com.java.dsa.datastructures;
+package com.java.dsa.datastructures.graphs;
 
 public class TestGraph {
 	private Graph testGraph;

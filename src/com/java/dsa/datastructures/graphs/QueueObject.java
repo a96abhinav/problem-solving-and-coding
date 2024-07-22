@@ -1,4 +1,4 @@
-package com.java.dsa.datastructures;
+package com.java.dsa.datastructures.graphs;
 public class QueueObject implements Comparable<QueueObject> {
     public Vertex vertex;
     public int priority;
