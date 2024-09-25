@@ -1,19 +1,19 @@
 package com.java.dsa.datastructures.LinkedList;
 
-class Node{
-    int data;
-    Node next;
-
-    public Node(int data){
-        this.data = data;
-        this.next = null;
-    }
-}
-
 public class SinglyLinkedList {
 
     Node head;
     int size;
+
+    class Node{
+        int data;
+        Node next;
+
+        public Node(int data){
+            this.data = data;
+            this.next = null;
+        }
+    }
 
     public void size(){
         System.out.println("List size - "+this.size);
