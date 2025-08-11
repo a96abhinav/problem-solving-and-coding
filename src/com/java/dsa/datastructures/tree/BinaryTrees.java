@@ -200,7 +200,7 @@ public class BinaryTrees {
         System.out.println("\nSum of Nodes - "+sumOfNodes(root));
         System.out.println("\nHeight of Tree - "+height(root));
         System.out.println("\nDiameter of Tree((O)N2) - "+diameter(root));
-        System.out.println("\nDiameter of Tree((O)N) - "+diameter2(root).diam);
+        System.out.println("\nDiameter/Height of Tree((O)N) - "+diameter2(root).diam+"/"+diameter2(root).ht);
         System.out.println("\nSubtree of Tree - "+isSubTree(root,root));
     }
 }
