@@ -11,6 +11,10 @@ class User {
 		this.userEmail = builder.userEmail;
 	}
 
+	public static UserBuilder builder() {
+		return new UserBuilder();
+	}
+
 	public String getUserEmail() {
 		return userEmail;
 	}
@@ -27,10 +31,6 @@ class User {
 		int userId;
 		String userName;
 		String userEmail;
-
-		public static UserBuilder builder() {
-			return new UserBuilder();
-		}
 
 		public UserBuilder setUserId(int userId) {
 			this.userId = userId;
@@ -64,7 +64,7 @@ public class BuilderDesignPattern {
 
 	public static void main(String[] args) {
 
-		User user = User.UserBuilder.builder().setUserEmail("XYZ@gmail.com").setUserId(1).setUserName("Abhinav").build();
+		User user = User.builder().setUserEmail("XYZ@gmail.com").setUserId(1).setUserName("Abhinav").build();
 		System.out.println(user);
 
 	}
