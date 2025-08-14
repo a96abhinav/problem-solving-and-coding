@@ -1,7 +1,6 @@
-package com.java.designpatterns;
+package com.java.designpatterns.creational;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 class NetworkConnection implements Cloneable {

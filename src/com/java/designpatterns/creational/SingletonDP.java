@@ -1,4 +1,4 @@
-package com.java.designpatterns;
+package com.java.designpatterns.creational;
 
 class SingletonClass {
 
