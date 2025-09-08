@@ -1,8 +1,5 @@
 package com.java.designpatterns.creational;
 
-import lombok.Getter;
-import lombok.Setter;
-
 class Documents {
 	String aadharCard;
 	String panCard;
