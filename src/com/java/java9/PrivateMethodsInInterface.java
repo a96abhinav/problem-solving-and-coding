@@ -1,20 +1,34 @@
 package com.java.java9;
 
 interface A {
-	public static int sum(int a,int b,int c) {
-		System.out.println("Sum3 : "+sum3(a,b,c));
-		return a+b;
+
+	int multiply(int a, int b);
+
+	default int divide(int a, int b) {
+		return a / b;
 	}
-	private static int sum3(int a,int b,int c) {
-		return a+b+c;
+
+	public static int sum(int a, int b, int c) {
+		return sum3(a, b, c);
+	}
+
+	private static int sum3(int a, int b, int c) {
+		return a + b + c;
 	}
 }
 
-public class PrivateMethodsInInterface implements A{
+public class PrivateMethodsInInterface implements A {
 
 	public static void main(String[] args) {
-		
-		System.out.println(A.sum(2, 2,2));
-		
+
+		PrivateMethodsInInterface privateMethodsInInterface = new PrivateMethodsInInterface();
+		System.out.println(privateMethodsInInterface.multiply(2, 2)); //abstract method
+		System.out.println(privateMethodsInInterface.divide(2, 2)); //default method
+		System.out.println(A.sum(2, 2, 2)); //static method
+	}
+
+	@Override
+	public int multiply(int a, int b) {
+		return a * b;
 	}
 }
