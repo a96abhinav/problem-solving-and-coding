@@ -1,11 +1,6 @@
 package com.java.java8;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -49,11 +44,11 @@ public class JavaStreamsProblems {
 		//*************** Given a list of integers, find maximum and minimum of those numbers
 		System.out.println("P4*******************************************************************************");
 		
-		//int max = listOfIntegers.stream().max(Comparator.naturalOrder()).get(); 
-		//int max = Collections.max(listOfIntegers);
-		int max = listOfIntegers.stream().mapToInt(i->i).max().getAsInt();
-		int min = listOfIntegers.stream().min(Comparator.naturalOrder()).get();
-		System.out.println("max : "+max+" & min : "+min);
+		int max = listOfIntegers.stream().max(Comparator.naturalOrder()).get();
+		int max1 = Collections.max(listOfIntegers);
+		int max2 = listOfIntegers.stream().mapToInt(i->i).max().getAsInt();
+		int min1 = listOfIntegers.stream().min(Comparator.naturalOrder()).get();
+		System.out.println("max : "+max+" & min : "+min1);
 		
 		//*************** How do you merge two unsorted arrays into single sorted array using Java 8 streams
 		System.out.println("P5*******************************************************************************");
@@ -118,7 +113,7 @@ public class JavaStreamsProblems {
         String str1 = "ROTATOR";
         //boolean isItPalindrome = IntStream.range(0, str.length()/2).
         //noneMatch(i -> str.charAt(i) != str.charAt(str.length() - i -1));
-        boolean isPalindrome = IntStream.range(0, str1.length()/2).noneMatch(i -> str1.charAt(i) != str1.charAt(str1.length()-i-1));
+        boolean isPalindrome = IntStream.range(0, str1.length()/2).allMatch(i -> str1.charAt(i) == str1.charAt(str1.length()-i-1));
         System.out.println(isPalindrome);
 	}
 

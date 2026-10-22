@@ -5,7 +5,7 @@ class Documents {
 	String panCard;
 	String voterId;
 
-	public Documents(DocumentsBuilder builder){
+	public Documents(DocumentsBuilder builder) {
 		this.aadharCard = builder.aadharCard;
 		this.panCard = builder.panCard;
 		this.voterId = builder.voterId;
@@ -13,11 +13,7 @@ class Documents {
 
 	@Override
 	public String toString() {
-		return "Documents{" +
-				"aadharCard='" + aadharCard + '\'' +
-				", panCard='" + panCard + '\'' +
-				", voterId='" + voterId + '\'' +
-				'}';
+		return "Documents{" + "aadharCard='" + aadharCard + '\'' + ", panCard='" + panCard + '\'' + ", voterId='" + voterId + '\'' + '}';
 	}
 }
 
@@ -26,9 +22,7 @@ class DocumentsBuilder {
 	String panCard;
 	String voterId;
 
-	private DocumentsBuilder(){}
-
-	public static DocumentsBuilder create(){
+	public static DocumentsBuilder create() {
 		return new DocumentsBuilder();
 	}
 
@@ -47,7 +41,7 @@ class DocumentsBuilder {
 		return this;
 	}
 
-	public Documents build(){
+	public Documents build() {
 		return new Documents(this);
 	}
 }

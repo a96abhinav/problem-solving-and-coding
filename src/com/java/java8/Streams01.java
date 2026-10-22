@@ -40,7 +40,8 @@ public class Streams01 {
 
 		Map<String, Double> map = employeeList.stream().collect(Collectors.groupingBy(Employee::getDepartment, Collectors.collectingAndThen(Collectors.toList(), employees -> {
 
-			Employee e = ((Collection<Employee>) employees).stream().sorted(Comparator.comparing(Employee::getSalary).reversed()).skip(2).findFirst().orElse(new Employee(0, null, 0, null, null, 0, 0));
+			Employee e = ((Collection<Employee>) employees).stream().sorted(Comparator.comparing(Employee::getSalary).reversed())
+					.skip(2).findFirst().orElse(new Employee(0, null, 0, null, null, 0, 0));
 
 			return e.getSalary();
 		})));
